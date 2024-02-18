@@ -1,24 +1,24 @@
 const menuToggle = document.getElementById('menu-toggle');
 const menuContainer = document.getElementById('menu-container');
-menuToggle.addEventListener('click', function() {
+menuToggle.addEventListener('click', function () {
     menuContainer.classList.toggle('active');
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     console.log('DOM content loaded');
 
-    const apiKey = '6cd62baf9d4e40be81836d219063a41e'; // Replace with your Halo API key
+    const apiKey = '6cd62baf9d4e40be81836d219063a41e';
 
-    // Event listener for search button on index.html page
+
     const searchButton = document.getElementById('search-button');
     if (searchButton) {
         console.log('Search button found on index.html page');
-        searchButton.addEventListener('click', function() {
+        searchButton.addEventListener('click', function () {
             console.log('Search button clicked');
             const gamertag = document.getElementById('gamertag').value.trim();
             if (gamertag) {
                 console.log('Gamertag entered:', gamertag);
-                window.location.href = `stats.html?gamertag=${encodeURIComponent(gamertag)}`; // Navigate to stats.html with gamertag in URL
+                window.location.href = `stats.html?gamertag=${encodeURIComponent(gamertag)}`;
             } else {
                 console.log('No gamertag entered');
             }
@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
 function fetchPlayerStats(gamertag, apiKey) {
     console.log('Fetching player stats for gamertag:', gamertag);
     fetch(`https://www.haloapi.com/stats/h5/servicerecords/arena?players=${encodeURIComponent(gamertag)}`, {
-            headers: {
-                'Ocp-Apim-Subscription-Key': apiKey
-            }
-        })
+        headers: {
+            'Ocp-Apim-Subscription-Key': apiKey
+        }
+    })
         .then(response => {
             console.log('Response received from API');
             if (!response.ok) {
@@ -57,11 +57,29 @@ function fetchPlayerStats(gamertag, apiKey) {
         })
         .then(data => {
             console.log('Player stats:', data);
-            // Update the statsContainer with the fetched data
-            const statsContainer = document.getElementById('statsContainer');
-            // Example: statsContainer.textContent = JSON.stringify(data, null, 2);
+            
+            //Populate stat boxes with API data 
+            document.getElementById('spartanRankValue').textContent = data.Results[0].Result.SpartanRank;
+
+            populateStatBox('totalKills', data.Results[0].Result.ArenaStats.TotalKills);
+            populateStatBox('totalDeaths', data.Results[0].Result.ArenaStats.TotalDeaths);
+            populateStatBox('totalAssists', data.Results[0].Result.ArenaStats.TotalAssists);
+            populateStatBox('totalGamesCompleted', data.Results[0].Result.ArenaStats.TotalGamesCompleted);
+            populateStatBox('totalGamesWon', data.Results[0].Result.ArenaStats.TotalGamesWon);
+            populateStatBox('totalGamesLost', data.Results[0].Result.ArenaStats.TotalGamesLost);
+            populateStatBox('totalGamesTied', data.Results[0].Result.ArenaStats.TotalGamesTied);
+
+
         })
         .catch(error => {
             console.error('Error fetching player stats:', error);
         });
 }
+
+//Function that populates stat data 
+
+function populateStatBox(statBoxId, statValue) {
+    const statBoxElement = document.getElementById(statBoxId);
+    statBoxElement.querySelector('p').textContent = statValue;
+}
+

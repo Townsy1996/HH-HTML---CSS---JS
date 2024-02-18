@@ -62,10 +62,6 @@ body {
     margin-right: 10px;
 }
 
-
-
-
-
 @font-face {
     font-family: 'HaloFont';
     src: url("../fonts/halo_font.ttf") format('truetype');
@@ -102,7 +98,7 @@ body {
     margin-top: -10%;
 }
 
-#article1{
+#article1 {
     display: inline;
 }
 
@@ -115,8 +111,12 @@ li {
     margin-bottom: 10px;
     font-weight: bold;
     text-align: center;
-    font-family:'Courier New', Courier, monospace;
-    font-size:22px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 22px;
+}
+
+a {
+    color: rgb(64, 76, 200);
 }
 
 img {
@@ -160,31 +160,43 @@ img {
 
 #statsContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
-    gap: 20px; /* Spacing between grid items */
-    justify-content: center; /* Center the grid items horizontally */
+    align-self: center;
+    grid-template-columns: repeat(7, minmax(100px, 1fr));
+    gap: 20px;
+    background-color: #000000;
+    justify-content:flex-start;
+    padding: 30px; /* Add padding to create space above and below */
+    border-radius: 20px; /* Add border-radius for rounded corners */
+    
+
 }
 
-/* Style for each individual stat box */
 .stat-box {
-    width: 80%; /* Ensure each box takes up the full width of its grid cell */
-    height: 100px; /* Make height match width */
+    width:80%;
+    height: 100px;
     padding: 10px;
-    background-color: #f0f0f0;
+    background-color: #42424256;
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(243, 239, 239, 0.1);
 }
 
-/* Style for stat box heading */
 .stat-box h3 {
     margin-top: 0;
-    font-size: small;
+    font-size:small;
+    color: #cccccc;
+    text-align: center;
 }
 
-/* Style for stat box value */
+#spartanRankValue{
+    font-size:large;
+}
+
+
 .stat-box p {
-    font-size: small;
+    font-size: large;
     font-weight: bold;
     margin: 0;
+    color: #ffffff;
+    text-align: center;
 }
