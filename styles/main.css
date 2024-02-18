@@ -1,0 +1,190 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a3a18a2;
+    margin: 0;
+    padding: 0;
+    border-top: 70px solid black;
+}
+
+.menu-container {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 9999;
+    /* Ensure menu is above button */
+}
+
+.menu-container.active {
+    display: block;
+}
+
+.border-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    border-bottom: 2px solid black;
+    padding: 10px;
+    z-index: 999;
+    /* Ensure button is above menu */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.border-container button {
+    background-color: #ffffff;
+    color: #000000;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: auto;
+    /* Move the button to the right */
+    z-index: 10000;
+    /* Ensure button is above menu */
+}
+
+.gamertag-box {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gamertag-box label,
+.gamertag-box input,
+.gamertag-box button {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+
+
+
+
+@font-face {
+    font-family: 'HaloFont';
+    src: url("../fonts/halo_font.ttf") format('truetype');
+}
+
+/* Styles for index.html elements specific*/
+
+#main-title {
+    text-align: center;
+    font-family: "HaloFont" !important;
+    font-size: 56px;
+    line-height: 1.4;
+    color: #000000;
+    text-shadow: 2px 2px 4px rgba(160, 86, 3, 0.842);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.welcome-container {
+    margin: 0 25%;
+}
+
+#welcome-message {
+    text-align: center;
+}
+
+.weapon-types {
+    color: #000000;
+    margin-left: 10%;
+}
+
+#news-title {
+    color: rgba(241, 235, 235, 0.909);
+    margin-top: -10%;
+}
+
+#article1{
+    display: inline;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace;
+    font-size:20px;
+}
+
+img {
+    display: inline-block;
+    margin: 0 auto;
+    margin-left: 5%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.Maps {
+    width: 18%;
+    margin-right: 2.5%;
+    float: left;
+
+}
+
+.Weapons {
+    width: 18%;
+    margin-left: 2.5%;
+    float: right;
+}
+
+.news-container {
+    width: 45%;
+    margin: 0 auto;
+    color: #ffffffcc;
+    background-color: rgba(27, 26, 26, 0.884);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+#map-title,
+#weapon-title {
+    margin-left: 10%;
+}
+
+#statsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
+    gap: 20px; /* Spacing between grid items */
+    justify-content: center; /* Center the grid items horizontally */
+}
+
+/* Style for each individual stat box */
+.stat-box {
+    width: 80%; /* Ensure each box takes up the full width of its grid cell */
+    height: 100px; /* Make height match width */
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for stat box heading */
+.stat-box h3 {
+    margin-top: 0;
+    font-size: small;
+}
+
+/* Style for stat box value */
+.stat-box p {
+    font-size: small;
+    font-weight: bold;
+    margin: 0;
+}
